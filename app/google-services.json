@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "163742334612",
+    "project_id": "naomyyyy-mvvm",
+    "storage_bucket": "naomyyyy-mvvm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:163742334612:android:a83f601cbd28f79158fe81",
+        "android_client_info": {
+          "package_name": "net.coding"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlmOFawQZQxZESfdFtJz-t5Z0DNp9tIAE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
