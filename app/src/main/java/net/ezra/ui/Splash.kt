@@ -5,6 +5,7 @@ import android.content.res.Configuration
 import android.view.animation.OvershootInterpolator
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -21,6 +22,7 @@ import androidx.navigation.compose.rememberNavController
 import kotlinx.coroutines.delay
 import net.ezra.R
 import net.ezra.navigation.ROUTE_HOME
+
 
 
 
@@ -49,21 +51,21 @@ fun SplashScreen(navController: NavHostController) {
     // Image
 
     Column (
+       modifier = Modifier.
+       background(color = Color.DarkGray),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ){
 
-        Image(painter = painterResource(id = R.drawable.logo),
+        Image(painter = painterResource(id = R.drawable.proconnect),
             contentDescription = "Logo",
             modifier = Modifier
                 .scale(scale.value)
                 .fillMaxSize()
+            ,
+            alignment = Alignment.Center
+
         )
-
-        Text("ProConnect", color = Color.Black)
-
-
-
     }
 
 

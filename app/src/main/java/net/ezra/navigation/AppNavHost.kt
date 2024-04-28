@@ -19,6 +19,7 @@ import net.ezra.ui.products.ProductsScreen
 import net.ezra.ui.services.ServicesScreen
 import net.ezra.ui.shop.ShopScreen
 import net.ezra.ui.students.AddStudents
+import net.ezra.ui.travelapp.TravelappScreen
 
 @Composable
 fun AppNavHost(
@@ -39,14 +40,10 @@ fun AppNavHost(
     ) {
 
 
-        composable(ROUTE_LOGIN) {
-            LoginScreen(navController)
-        }
 
 
-        composable(ROUTE_SIGNUP) {
-            SignupScreen(navController)
-        }
+
+
 
 
         composable(ROUTE_HOME) {
@@ -88,6 +85,17 @@ fun AppNavHost(
         composable(ROUTE_SPLASH) {
             SplashScreen(navController)
         }
+        composable(ROUTE_LOGIN) {
+            net.ezra.ui.login.LoginScreen(navController)
+        }
+        composable(ROUTE_SIGNUP){
+            net.ezra.ui.signup.SignupScreen(navController)
+        }
+        composable(ROUTE_TRAVELAPP) {
+            TravelappScreen(navController)
+        }
+
+
 
 
 

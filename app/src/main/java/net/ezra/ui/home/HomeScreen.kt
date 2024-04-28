@@ -1,11 +1,18 @@
-package net.ezra.ui.home
+ package net.ezra.ui.home
 
+import android.annotation.SuppressLint
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.text.ClickableText
+import androidx.compose.material.IconButton
+import androidx.compose.material.Scaffold
+import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Home
@@ -24,17 +31,21 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import net.ezra.navigation.ROUTE_ABOUT
@@ -48,195 +59,100 @@ import net.ezra.navigation.ROUTE_SHOP
 
 import net.ezra.R
 import net.ezra.navigation.ROUTE_ADD_STUDENTS
+import net.ezra.navigation.ROUTE_LOGIN
+import net.ezra.navigation.ROUTE_SIGNUP
 
 
+ @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun HomeScreen(navController: NavHostController) {
-    Box (
-        modifier = Modifier
-            .fillMaxSize()
 
-    ) {
-        androidx.compose.foundation.Image(
-            painter = painterResource(id = R.drawable.logo),
-            contentDescription = "",
+
+    Column {
+        Box(
             modifier = Modifier
-                .fillMaxSize(),
-            contentScale = ContentScale.Crop
-
-        )
-    }
-
-
-
-        LazyColumn (
-        modifier = Modifier
-            .fillMaxSize()
-    ){
-        item {
-            Column (
+                .fillMaxSize()
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.mylogo),
+                contentDescription = "",
+                modifier = Modifier
+                    .fillMaxSize(),
+                contentScale = ContentScale.FillHeight
+            )
+            Row(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(10.dp),
-//                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Row{
-                    Icon(imageVector = Icons.Default.Home, contentDescription = "")
-                    
-                    Spacer(modifier = Modifier.width(94.dp))
-                    Spacer(modifier = Modifier.height(300.dp))
+            )
+            {
+                Icon(imageVector = Icons.Default.Home, contentDescription = "")
 
-                    Column {
-                        Row {
-                            Text(text = "Current Location")
-                            Icon(imageVector = Icons.Default.LocationOn, contentDescription = "")
-                        }
-                    }
-                    Spacer(modifier = Modifier.width(115.dp))
-                    
-                    Icon(imageVector = Icons.Default.Face, contentDescription = "")
-
-                }
             }
         }
-    }
-    Spacer(modifier = Modifier.height(2090.dp))
-    
-    Column {
-
-        var location by remember {
-            mutableStateOf(TextFieldValue(""))
-        }
-        OutlinedTextField(
-            value = location, onValueChange = { location = it },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
-            textStyle = TextStyle(Color.Black)
-        )
-        Icon(imageVector = Icons.Default.Search, contentDescription = "")
-
-    }
-
-
-                Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .wrapContentHeight()
-            .padding(10.dp)
-            .padding(top = 10.dp)
-
-    ){
-
-        Row {
-            Text(text = stringResource(id = R.string.mit))
-            Text(text = "Home")
-            Spacer(modifier = Modifier.width(45.dp))
-
         }
 
-Spacer(modifier = Modifier.height(1000.dp))
+     Column(
+         modifier = Modifier
+             .fillMaxSize(),
+         horizontalAlignment = Alignment.CenterHorizontally,
+         verticalArrangement = Arrangement.Center
+     ){
+         Row(
+         horizontalArrangement = Arrangement.Center,
+             verticalAlignment = Alignment.CenterVertically
 
-        Text(
-            modifier = Modifier
-                .clickable {
-                    navController.navigate(ROUTE_ABOUT) {
-                        popUpTo(ROUTE_HOME) { inclusive = true }
-                    }
-                },
-            text = "about"
-        )
+         ) {
+             Text(
+                 text = "Let's make",
+                 fontWeight = FontWeight.ExtraLight,
+                 color = Color.Black,
+                 textAlign = TextAlign.Center,
+                 fontSize = 40.sp)
+         }
+         Row(
+             horizontalArrangement = Arrangement.Center,
+             verticalAlignment = Alignment.CenterVertically
 
-        Button(onClick = {
-            navController.navigate(ROUTE_ABOUT) {
-                popUpTo(ROUTE_HOME) { inclusive = true }
-            }
-        }) {
-
-            Text(text = "sketchy about")
-
-        }
-
-        Text(
-            modifier = Modifier
-                .clickable {
-                    navController.navigate(ROUTE_CONTACT) {
-                        popUpTo(ROUTE_HOME) { inclusive = true }
-                    }
-                },
-            text = "Contact"
-        )
-
-        Card(
-            colors = CardDefaults.cardColors(Color(0xffE52C04)),
-            elevation = CardDefaults.cardElevation(5.dp)
-
-        ) {
+             ) {
+             Text(
+                 text = "your dream",
+                 fontWeight = FontWeight.ExtraBold,
+                 color = Color.Black,
+                 textAlign = TextAlign.Center,
+                 fontSize = 40.sp)
+         }
+         Row(
+             horizontalArrangement = Arrangement.Center,
+             verticalAlignment = Alignment.CenterVertically
 
 
+         ) {
+             Text(
+                 text = "vacation",
+                 fontWeight = FontWeight.ExtraBold,
+                 color = Color.Black,
+                 textAlign = TextAlign.Center,
+                 fontSize = 40.sp)
+         }
+         Row(
+//             horizontalArrangement = Arrangement.Center,
+//             verticalAlignment = Alignment.CenterVertically
+         ) {
 
-        }
+             OutlinedButton(
+                 onClick = {
+                     navController.navigate(ROUTE_LOGIN) {
+                         popUpTo(ROUTE_HOME) { inclusive = true }
+                     }
+                 }) {
 
+                 Text(text = "Login",
+                     color = Color.Black,
+                     fontWeight = FontWeight.ExtraBold
+                     )
 
-        Text(
-            modifier = Modifier
-                .clickable {
-                    navController.navigate(ROUTE_PRODUCTS) {
-                        popUpTo(ROUTE_HOME) { inclusive = true }
-                    }
-                },
-            text = "go to products screen"
-
-        )
-
-        Button(onClick = {
-            navController.navigate(ROUTE_MIT) {
-                popUpTo(ROUTE_HOME) { inclusive = true }
-            }}) {
-
-            Text(text = "fuurye")
-
-        }
-
-        Text(
-            modifier = Modifier
-
-                .clickable {
-                    navController.navigate(ROUTE_MIT) {
-                        popUpTo(ROUTE_HOME) { inclusive = true }
-                    }
-                },
-            text = "go to mit",
-            textAlign = TextAlign.Center,
-            color = MaterialTheme.colorScheme.onSurface
-        )
-
-        Text(
-            modifier = Modifier
-                .clickable {
-                    navController.navigate(ROUTE_SHOP) {
-                        popUpTo(ROUTE_HOME) { inclusive = true }
-                    }
-                },
-            text = "go to shop screen",
-            textAlign = TextAlign.Center,
-            color = MaterialTheme.colorScheme.onSurface
-        )
-        
-        Spacer(modifier = Modifier.height(10.dp))
-
-
-        
-        OutlinedButton(onClick = {
-
-            navController.navigate(ROUTE_ADD_STUDENTS) {
-                popUpTo(ROUTE_HOME) { inclusive = true }
-            }
-
-        }) {
-
-            Text(text = "Add Students")
-
-        }
-
+             }
+         }
 
 
 
@@ -244,12 +160,17 @@ Spacer(modifier = Modifier.height(1000.dp))
 
 
     }
+
+
+
+
+
+
 
 }
-
 @Preview(showBackground = true)
 @Composable
 fun PreviewLight() {
     HomeScreen(rememberNavController())
-}
+    }
 

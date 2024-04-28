@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "Naomy-mvvm"
+rootProject.name = "ProConnect"
 include ':app'
