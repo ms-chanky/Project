@@ -89,77 +89,93 @@ fun HomeScreen(navController: NavHostController) {
 
             }
         }
-        }
+    }
 
-     Column(
-         modifier = Modifier
-             .fillMaxSize(),
-         horizontalAlignment = Alignment.CenterHorizontally,
-         verticalArrangement = Arrangement.Center
-     ){
-         Row(
-         horizontalArrangement = Arrangement.Center,
-             verticalAlignment = Alignment.CenterVertically
+     Column (
+         Modifier.fillMaxSize(),
+         horizontalAlignment = Alignment.CenterHorizontally
+     ) {
 
-         ) {
-             Text(
-                 text = "Let's make",
-                 fontWeight = FontWeight.ExtraLight,
-                 color = Color.Black,
-                 textAlign = TextAlign.Center,
-                 fontSize = 40.sp)
-         }
-         Row(
-             horizontalArrangement = Arrangement.Center,
-             verticalAlignment = Alignment.CenterVertically
+         Column(
+             modifier = Modifier
+                 .fillMaxSize(),
+             horizontalAlignment = Alignment.CenterHorizontally,
+             verticalArrangement = Arrangement.Center
+         ){
+             Row(
+                 horizontalArrangement = Arrangement.Center,
+                 verticalAlignment = Alignment.CenterVertically
 
              ) {
-             Text(
-                 text = "your dream",
-                 fontWeight = FontWeight.ExtraBold,
-                 color = Color.Black,
-                 textAlign = TextAlign.Center,
-                 fontSize = 40.sp)
-         }
-         Row(
-             horizontalArrangement = Arrangement.Center,
-             verticalAlignment = Alignment.CenterVertically
+                 Text(
+                     text = "Let's make",
+                     fontWeight = FontWeight.ExtraLight,
+                     color = Color.Black,
+                     textAlign = TextAlign.Center,
+                     fontSize = 40.sp)
+             }
+             Row(
+                 horizontalArrangement = Arrangement.Center,
+                 verticalAlignment = Alignment.CenterVertically
+
+             ) {
+                 Text(
+                     text = "your dream",
+                     fontWeight = FontWeight.ExtraBold,
+                     color = Color.Black,
+                     textAlign = TextAlign.Center,
+                     fontSize = 40.sp)
+             }
+             Row(
+                 horizontalArrangement = Arrangement.Center,
+                 verticalAlignment = Alignment.CenterVertically
 
 
-         ) {
-             Text(
-                 text = "vacation",
-                 fontWeight = FontWeight.ExtraBold,
-                 color = Color.Black,
-                 textAlign = TextAlign.Center,
-                 fontSize = 40.sp)
-         }
-         Row(
+             ) {
+                 Text(
+                     text = "vacation",
+                     fontWeight = FontWeight.ExtraBold,
+                     color = Color.Black,
+                     textAlign = TextAlign.Center,
+                     fontSize = 40.sp)
+             }
+
+             Spacer(modifier = Modifier.height(100.dp))
+
+             Column () {
+                 Row(
 //             horizontalArrangement = Arrangement.Center,
 //             verticalAlignment = Alignment.CenterVertically
-         ) {
+                 ) {
 
-             OutlinedButton(
-                 onClick = {
-                     navController.navigate(ROUTE_LOGIN) {
-                         popUpTo(ROUTE_HOME) { inclusive = true }
+                     Button(
+                         onClick = {
+                             navController.navigate(ROUTE_LOGIN) {
+                                 popUpTo(ROUTE_HOME) { inclusive = true }
+                             }
+                         }) {
+
+                         Text(text = "Get started",
+                             color = Color.Black,
+                             fontWeight = FontWeight.ExtraBold
+                         )
+
                      }
-                 }) {
-
-                 Text(text = "Login",
-                     color = Color.Black,
-                     fontWeight = FontWeight.ExtraBold
-                     )
-
+                 }
              }
+
+
+
+
+
+
+
+
          }
 
 
 
-
-
-
-    }
+     }
 
 
 
