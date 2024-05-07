@@ -8,15 +8,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import net.ezra.ui.SplashScreen
-import net.ezra.ui.about.AboutScreen
-import net.ezra.ui.auth.LoginScreen
-import net.ezra.ui.auth.SignupScreen
 import net.ezra.ui.contact.ContactScreen
 import net.ezra.ui.evening.EveningScreen
 import net.ezra.ui.home.HomeScreen
 import net.ezra.ui.mit.MitScreen
+import net.ezra.ui.password.PasswordScreen
 import net.ezra.ui.products.ProductsScreen
 import net.ezra.ui.services.ServicesScreen
+import net.ezra.ui.settings.SettingsScreen
 import net.ezra.ui.shop.ShopScreen
 import net.ezra.ui.students.AddStudents
 import net.ezra.ui.travelapp.TravelappScreen
@@ -29,10 +28,11 @@ fun AppNavHost(
 
 
 ) {
+
     BackHandler {
         navController.popBackStack()
+    }
 
-        }
     NavHost(
         modifier = modifier,
         navController = navController,
@@ -41,19 +41,12 @@ fun AppNavHost(
 
 
 
-
-
-
-
-
         composable(ROUTE_HOME) {
             HomeScreen(navController)
         }
 
 
-        composable(ROUTE_ABOUT) {
-            AboutScreen(navController)
-        }
+
 
         composable(ROUTE_SERVICES) {
             ServicesScreen(navController)
@@ -86,13 +79,22 @@ fun AppNavHost(
             SplashScreen(navController)
         }
         composable(ROUTE_LOGIN) {
-            net.ezra.ui.login.LoginScreen(navController)
+            net.ezra.ui.login.LoginScreen(navController = navController)
         }
         composable(ROUTE_SIGNUP){
-            net.ezra.ui.signup.SignupScreen(navController)
+            net.ezra.ui.signup.SignupScreen(navController = navController)
         }
         composable(ROUTE_TRAVELAPP) {
             TravelappScreen(navController)
+        }
+        composable(ROUTE_SERVICES) {
+            ServicesScreen(navController)
+        }
+        composable(ROUTE_SETTINGS) {
+            SettingsScreen(navController)
+        }
+        composable(ROUTE_PASSWORD) {
+            PasswordScreen(navController)
         }
 
 

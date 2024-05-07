@@ -15,6 +15,8 @@ const val ROUTE_SPLASH = "splash"
 const val ROUTE_LOGIN = "login"
 const val ROUTE_SIGNUP = "signup"
 const val ROUTE_TRAVELAPP = "travelapp"
+const val ROUTE_SETTINGS = "settings"
+const val ROUTE_PASSWORD = "password"
 
 
 
