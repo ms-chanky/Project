@@ -58,10 +58,19 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import androidx.compose.foundation.layout.*
 import net.ezra.R
+import net.ezra.navigation.ROUTE_ADDTRAVEL
+import net.ezra.navigation.ROUTE_BALI
+import net.ezra.navigation.ROUTE_BANFF
+import net.ezra.navigation.ROUTE_BEACH
+import net.ezra.navigation.ROUTE_DESTINATION
 import net.ezra.navigation.ROUTE_HOME
+import net.ezra.navigation.ROUTE_ISTANBUL
 import net.ezra.navigation.ROUTE_SETTINGS
 import net.ezra.navigation.ROUTE_TRAVELAPP
+
+
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -199,21 +208,15 @@ fun TravelappScreen(navController: NavHostController) {
                     }
                     LazyRow {
                         item {
-                            OutlinedButton(onClick = {}, shape = CutCornerShape(10))
-                            {
-                                Image(
-                                    painterResource(id = R.drawable.baloon),
-                                    contentDescription = "Hot air balloon",
-                                    modifier = Modifier.size(20.dp)
-                                )
 
-                                Text(text = "Sky Tour",
-                                    color = Color.White)
-                            }
+                            OutlinedButton(onClick = {
+                                                     navController.navigate(ROUTE_ADDTRAVEL) {
+                                                         popUpTo(ROUTE_TRAVELAPP) {
+                                                             inclusive = true
+                                                         }
+                                                     }
 
-                            Spacer(modifier = Modifier.width(7.dp))
-
-                            OutlinedButton(onClick = {}, shape = CutCornerShape(10))
+                            }, shape = CutCornerShape(10))
                             {
                                 Image(
                                     painterResource(id = R.drawable.cactus),
@@ -226,7 +229,13 @@ fun TravelappScreen(navController: NavHostController) {
                             }
                             Spacer(modifier = Modifier.width(7.dp))
 
-                            OutlinedButton(onClick = {}, shape = CutCornerShape(10))
+                            OutlinedButton(onClick = {
+                                navController.navigate(ROUTE_BEACH) {
+                                    popUpTo(ROUTE_TRAVELAPP) {
+                                        inclusive = true
+                                    }
+                                }
+                            }, shape = CutCornerShape(10))
                             {
                                 Image(
                                     painterResource(id = R.drawable.beach),
@@ -237,39 +246,14 @@ fun TravelappScreen(navController: NavHostController) {
                                 Text(text = "Beach",
                                     color = Color.White)
                             }
-                            Spacer(modifier = Modifier.width(7.dp))
 
-                            OutlinedButton(onClick = {}, shape = CutCornerShape(10))
-                            {
-                                Image(
-                                    painterResource(id = R.drawable.skydiving),
-                                    contentDescription = "Skydiving",
-                                    modifier = Modifier.size(20.dp)
-                                )
-
-                                Text(text = "Sky diving",
-                                    color = Color.White)
-                            }
 
                         }
                     }
                     Spacer(modifier = Modifier.height(20.dp))
                     Column {
                         Row {
-                            Text(text = "Travel places", fontSize = 34.sp, color = Color.White)
-                            Spacer(modifier = Modifier.width(43.dp))
-                            OutlinedButton(onClick = {}) {
-                                Text(text = "View all",
-                                    color = Color.White,
-                                    modifier = Modifier
-                                        .clickable {
-                                            navController.navigate(ROUTE_TRAVELAPP) {
-                                                popUpTo(ROUTE_TRAVELAPP) { inclusive = true }
-                                            }
-                                        }
-                                )
-
-                            }
+                            Text(text = "Popular Travel places", fontSize = 34.sp, color = Color.White)
 
                         }
 
@@ -277,22 +261,23 @@ fun TravelappScreen(navController: NavHostController) {
                     Column {
                         LazyRow {
                             item {
-                                Card (
-//                          elevation = CardDefaults.cardElevation(35.dp),
-////                    border = BorderStroke(1.dp, Color.Black)
-//                          modifier = Modifier
-//                              .size(200.dp)
-//                              .fillMaxWidth()
-                                )
-                                {
+                                Card(
+                                    modifier = Modifier
+                                        .clickable { navController.navigate(ROUTE_ISTANBUL){
+                                            popUpTo(ROUTE_TRAVELAPP) { inclusive = true }
+
+                                        } }
+                                ){
+
 
                                     Column (
                                         Modifier
 
                                     ) {
+
                                         Image(
                                             contentScale = ContentScale.FillBounds,
-                                            painter = painterResource(id = R.drawable.imageone),
+                                            painter = painterResource(id = R.drawable.istanbul),
                                             contentDescription = "",
                                             modifier = Modifier
                                                 .size(200.dp)
@@ -306,16 +291,10 @@ fun TravelappScreen(navController: NavHostController) {
                                         Modifier
                                             .fillMaxWidth()
                                     ) {
-                                        Row (
-                                            Modifier
-                                                .fillMaxWidth()
-                                                .padding(5.dp)
-                                        ) {
-                                            Text(text = "Thiksey Monastery")
-                                        }
+
                                         Row {
                                             Icon(imageVector = Icons.Default.LocationOn, contentDescription = "")
-                                            Text(text = "Ladakh, India")
+                                            Text(text = "Istanbul")
                                         }
                                     }
 
@@ -323,14 +302,13 @@ fun TravelappScreen(navController: NavHostController) {
 
                                 Spacer(modifier = Modifier.width(20.dp))
 
-                                Card (
-//                          elevation = CardDefaults.cardElevation(35.dp),
-////                    border = BorderStroke(1.dp, Color.Black)
-//                          modifier = Modifier
-//                              .size(200.dp)
-//                              .fillMaxWidth()
-                                )
-                                {
+                                Card(
+                                    modifier = Modifier
+                                        .clickable { navController.navigate(ROUTE_BALI){
+                                            popUpTo(ROUTE_TRAVELAPP) { inclusive = true }
+
+                                        } }
+                                ){
 
                                     Column (
                                         Modifier
@@ -338,7 +316,7 @@ fun TravelappScreen(navController: NavHostController) {
                                     ) {
                                         Image(
                                             contentScale = ContentScale.FillBounds,
-                                            painter = painterResource(id = R.drawable.imageone),
+                                            painter = painterResource(id = R.drawable.bali),
                                             contentDescription = "",
                                             modifier = Modifier
                                                 .size(200.dp)
@@ -352,16 +330,10 @@ fun TravelappScreen(navController: NavHostController) {
                                         Modifier
                                             .fillMaxWidth()
                                     ) {
-                                        Row (
-                                            Modifier
-                                                .fillMaxWidth()
-                                                .padding(5.dp)
-                                        ) {
-                                            Text(text = "Place")
-                                        }
+
                                         Row {
                                             Icon(imageVector = Icons.Default.LocationOn, contentDescription = "")
-                                            Text(text = "Location")
+                                            Text(text = "Bali")
                                         }
                                     }
 
@@ -370,22 +342,20 @@ fun TravelappScreen(navController: NavHostController) {
 
                                 Spacer(modifier = Modifier.width(20.dp))
 
-                                Card (
-//                          elevation = CardDefaults.cardElevation(35.dp),
-////                    border = BorderStroke(1.dp, Color.Black)
-//                          modifier = Modifier
-//                              .size(200.dp)
-//                              .fillMaxWidth()
-                                )
-                                {
+                                Card(
+                                    modifier = Modifier
+                                        .clickable { navController.navigate(ROUTE_BANFF){
+                                            popUpTo(ROUTE_TRAVELAPP) { inclusive = true }
 
-                                    Column (
-                                        Modifier
+                                        } }
+                                ){
 
-                                    ) {
+                                    Column {
+
+
                                         Image(
                                             contentScale = ContentScale.FillBounds,
-                                            painter = painterResource(id = R.drawable.imageone),
+                                            painter = painterResource(id = R.drawable.banff),
                                             contentDescription = "",
                                             modifier = Modifier
                                                 .size(200.dp)
@@ -399,16 +369,10 @@ fun TravelappScreen(navController: NavHostController) {
                                         Modifier
                                             .fillMaxWidth()
                                     ) {
-                                        Row (
-                                            Modifier
-                                                .fillMaxWidth()
-                                                .padding(5.dp)
-                                        ) {
-                                            Text(text = "Place")
-                                        }
+
                                         Row {
                                             Icon(imageVector = Icons.Default.LocationOn, contentDescription = "")
-                                            Text(text = "Location")
+                                            Text(text = "Banff")
                                         }
                                     }
 
@@ -456,8 +420,10 @@ fun BottomBar(navController: NavHostController) {
         BottomNavigationItem(icon = {
             Icon(imageVector = Icons.Default.Favorite,"")
         },
-            label = { Text(text = "Favorite") }, selected = (selectedIndex.value == 1), onClick = {
-                selectedIndex.value = 1
+            label = { Text(text = "My Destinations") }, selected = (selectedIndex.value == 1), onClick = {
+                navController.navigate(ROUTE_DESTINATION) {
+                    popUpTo(ROUTE_TRAVELAPP) { inclusive = true }
+                }
             })
         BottomNavigationItem(icon = {
             Icon(imageVector = Icons.Default.Settings, "")
@@ -476,4 +442,7 @@ fun BottomBar(navController: NavHostController) {
 fun HomeScreenPreviewLight() {
     TravelappScreen(rememberNavController())
 }
+
+
+
 

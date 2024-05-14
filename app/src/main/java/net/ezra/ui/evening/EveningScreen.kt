@@ -18,8 +18,8 @@ import net.ezra.navigation.ROUTE_MIT
 import net.ezra.navigation.ROUTE_SERVICES
 import net.ezra.R
 import net.ezra.navigation.ROUTE_CONTACT
-import net.ezra.navigation.ROUTE_PRODUCTS
 import net.ezra.navigation.ROUTE_SHOP
+import net.ezra.navigation.ROUTE_TRAVELAPP
 
 @Composable
 fun EveningScreen(navController: NavHostController) {
@@ -38,7 +38,7 @@ fun EveningScreen(navController: NavHostController) {
             modifier = Modifier
                 .clickable {
                     navController.navigate(ROUTE_HOME) {
-                        popUpTo(ROUTE_PRODUCTS) { inclusive = true }
+                        popUpTo(ROUTE_TRAVELAPP) { inclusive = true }
                     }
                 },
             text = "Go home"
